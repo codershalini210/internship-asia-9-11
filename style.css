@@ -1,0 +1,7 @@
+ input[type="button"]
+        {
+            background-color: rgb(237, 147, 10);
+            height:40px;
+            width:120px;
+            color:white;            
+        }
