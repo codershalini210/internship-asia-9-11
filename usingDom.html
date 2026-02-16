@@ -11,9 +11,31 @@
             var heading1 = document.getElementById("heading1")
             heading1.style.backgroundColor ="yellow"            
         }
+
+        function Hidebox()
+        {
+          let box = document.getElementById("box")  
+          let btnshow = document.getElementById("btnshow")
+          box.style.display = "none"
+          btnshow.style.display ="block"
+        }
+        function Showbox()
+        {
+          let box = document.getElementById("box")  
+           let btnshow = document.getElementById("btnshow")
+          box.style.display = "block"
+          btnshow.style.display="none"
+        }
     </script>
 </head>
 <body>
+    <input type="button" value="Show" id="btnshow"
+    style="display: none;"
+     onclick="Showbox()">
+    <div id="box">
+        <input type="button" value="hide" onclick="Hidebox()">
+    </div>
+    <hr>
     <input type="button" value="Click here " onclick="changeBG()">
     <h1 id="heading1" style="background-color:blue ;">WElcome to Javascript</h1>
 </body>
