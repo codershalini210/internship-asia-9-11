@@ -4,12 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script>
+        function hello()
+        {
+            var txtfname = document.getElementById("txtfname")
+            var txtlname = document.getElementById("txtlname")
+            var hmsg = document.getElementById("hmsg")
+            hmsg.innerHTML = "Hello "+ txtfname.value +" "+ txtlname.value
+            txtfname.value = ""
+            txtlname.value=""
+            txtfname.focus()
+        }
+    </script>
 </head>
 <body>
-    <p>Enter first name : <input type="text"></p>
-    <p>enter lastname : <input type="text"></p>
-    <input type="button" value="click here">
-    <h1>show hello msg with value of fname and lname</h1>
+    <p>Enter first name : <input type="text" id="txtfname"></p>
+    <p>enter lastname : <input type="text" id="txtlname"></p>
+    <input type="button" value="click here" onclick="hello()">
+    <h1 id="hmsg"></h1>
     
 </body>
 </html>

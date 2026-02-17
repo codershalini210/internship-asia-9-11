@@ -4,17 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script>
+        function empty()
+        {
+            var txtname = document.getElementById("txtname")
+            var txtcontact = document.getElementById("txtcontact")
+            var txtmessage = document.getElementById("txtmessage")
+            txtname.value  = ""
+            txtmessage.value=""
+            txtcontact.value=""
+        }
+        function send()
+        {
+            var txtname = document.getElementById("txtname")
+            var txtcontact = document.getElementById("txtcontact")            
+            var hmsg = document.getElementById("hmsg")
+            // hmsg.innerHTML = "Thanks "+ txtname.value +" We will contact you soon on "+ txtcontact.value
+            hmsg.innerHTML = `Thanks  ${txtname.value} we will reach you soon on ${txtcontact.value}`
+            empty()       
+        }
+    </script>
 </head>
 <body>
-    <p>name: <input type="text"></p>
-    <p>Contactno : <input type="text"></p>
-    <p>message: <Textarea></Textarea></p>
-    <input type="button" value="send"/>
-    <input type="button" value="Clear">
+    <p>name: <input type="text" id="txtname"></p>
+    <p>Contactno : <input type="text" id="txtcontact"></p>
+    <p>message: <Textarea id="txtmessage"></Textarea></p>
+    <input type="button" value="send" onclick="send()"/>
+    <input type="button" value="Clear" onclick="empty()">
     <!-- on clear button again set values of all the boxes to blank -->
-    <h1>
-        on send btn click  show msg:
-    thanks : name  we will reach you soon on "contactno"
+    <h1 id="hmsg">
+        
     </h1>
     
 </body>

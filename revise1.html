@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function hi()
+        {
+            alert("hello world how are you today")
+        }
+        function hideBox()
+        {
+            var d1 = document.getElementById("d1")
+            d1.style.display = "none"
+        }
+         function showBox()
+        {
+            var d1 = document.getElementById("d1")
+            d1.style.display = "block"
+        }
+        function welcome()
+        {
+            var txt1 = document.getElementById("txt1")
+            var hresult = document.getElementById("hresult")
+            hresult.innerHTML = "welcome "+ txt1.value
+        }
+    </script>
+</head>
+<body>
+
+    <label for="">Enter Name </label>
+    <input type="text" id="txt1"/>
+    <input type="button" value="Hi" onclick="welcome()">
+    <h1 id="hresult"></h1>
+
+    <input type="button" value="Click here" onclick="hi()">
+    
+    <input type="button" value="Hidebox" onclick="hideBox()">
+    <input type="button" value="Showbox" onclick="showBox()">
+
+    <div id="d1" style="background-color: yellowgreen;
+    height:100px;width:100px;">
+
+    </div>
+</body>
+</html>
