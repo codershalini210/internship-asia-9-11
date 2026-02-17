@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function add()
+        {
+            var txta = document.getElementById("txta")
+            var txtb = document.getElementById("txtb")
+            var presult = document.getElementById("presult")
+            // parseInt('value to convert')
+            var c = parseInt(txta.value)+parseInt(txtb.value)
+            presult.innerHTML = `sum is ${c}`
+        }
+    </script>
+</head>
+<body>
+    <p>a: <input type="text" id="txta"></p>
+    <p> b: <input type="text" id="txtb"></p>
+    <input type="button" value="+" onclick="add()">
+    <p id="presult"></p>
+</body>
+</html>
