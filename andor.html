@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function check()
+        {
+        var txtname = document.getElementById("txtname")    
+        var txtage = document.getElementById("txtage")    
+        var presult = document.getElementById("presult")    
+        var age = parseInt(txtage.value)
+        var msg = `sry ${txtname.value} you are not eligible to vote`;
+        var colorname = 'red'
+        
+        if(isNaN(txtage.value) || txtage.value =="" )
+        {
+            alert("please enter integer only" )
+            return
+        }
+        if(age>=120 || age<0)
+        {
+            msg = "invalid age"  
+        }    
+        else
+        {
+            if(age>=18)
+            {
+                msg = `Welcome ${txtname.value} you are  eligible to vote`;
+                colorname ="greenyellow"
+            }
+        }
+        presult.innerHTML = msg
+        presult.style.backgroundColor=colorname
+        }
+    </script>
+</head>
+<body>
+    <p>
+        Enter name : <input type="text" id="txtname">
+    </p>
+    <p>
+        Enter Age: <input type="text" id="txtage">
+    </p>
+    <input type="button" value="Check " onclick="check()"/>
+    
+    <p id="presult">
+
+    </p>
+</body>
+</html>

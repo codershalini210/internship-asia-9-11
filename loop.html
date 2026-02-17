@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function ShowNumbers()
+        {
+            let pnumbers  = document.getElementById("pnumbers")
+            pnumbers.innerHTML=""
+            for(let i =1;i<=5;i++)
+        {            
+            pnumbers.innerHTML = pnumbers.innerHTML+" "+ i 
+        }
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="no asc " onclick="ShowNumbers()">
+    <input type="button" value="no desc " onclick="ShowNumbers()">
+    <p id="pnumbers"></p>
+</body>
+</html>
