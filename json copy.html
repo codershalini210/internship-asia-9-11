@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Form</title>
+
+    <style>
+        /* 🌟 Orange Theme */
+        body{
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg,#ff9a3c,#ff6a00);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container{
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            width: 420px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h2{
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="number"]{
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            transition: 0.3s;
+        }
+
+        /* ✨ Input Focus Animation */
+        input:focus{
+            border-color: #ff6a00;
+            box-shadow: 0 0 8px rgba(255,106,0,0.6);
+            outline: none;
+            transform: scale(1.02);
+        }
+
+        /* 🔥 Buttons */
+        input[type="button"]{
+            padding: 8px 15px;
+            border: none;
+            border-radius: 6px;
+            background: #ff6a00;
+            color: white;
+            cursor: pointer;
+            margin-right: 5px;
+            transition: 0.3s;
+        }
+
+        input[type="button"]:hover{
+            background: #ff4500;
+            transform: scale(1.05);
+        }
+
+        table{
+            width: 100%;
+            margin-top: 15px;
+            border-collapse: collapse;
+        }
+
+        th{
+            background: #ff6a00;
+            color: white;
+            padding: 8px;
+        }
+
+        td{
+            padding: 8px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        /* 🎯 Row Animation */
+        tbody tr{
+            animation: slideUp 0.5s ease forwards;
+        }
+
+        @keyframes fadeIn{
+            from{ opacity: 0; transform: translateY(-20px);}
+            to{ opacity: 1; transform: translateY(0);}
+        }
+
+        @keyframes slideUp{
+            from{ opacity: 0; transform: translateY(10px);}
+            to{ opacity: 1; transform: translateY(0);}
+        }
+
+    </style>
+
+    <script>
+        var students = []
+
+        function demo()
+        {
+            var tstudents = document.getElementById("tstudents")
+            
+            let studentsUI = students.slice().reverse().map((s)=>
+            {
+                return `<tr>
+                        <td>${s.name}</td> 
+                        <td>${s.age}</td> 
+                        <td>${s.contact}</td>
+                        </tr>`
+            }).join("")
+
+            tstudents.innerHTML = studentsUI
+        }
+
+        function AddStudent()
+        {
+            let txtname  =document.getElementById("txtname")
+            let txtage  =document.getElementById("txtage")
+            let txtcontact =document.getElementById("txtcontact")
+            let hmsg  = document.getElementById("hmsg")
+            let cname = "red"
+
+            if(txtcontact.value=="" || txtage.value=="" || txtname.value=="")
+            {
+                hmsg.innerHTML = "Please fill all the fields"
+            }
+            else
+            {
+                if(isNaN(txtcontact.value))
+                {
+                    hmsg.innerHTML = "Invalid contact number"        
+                }
+                else
+                {
+                    let student = {name:txtname.value,age:txtage.value,contact:txtcontact.value}
+                    students.push(student)
+                    demo()
+
+                    txtname.value = ""
+                    txtage.value=""
+                    txtcontact.value=""
+                    txtname.focus()
+
+                    hmsg.innerHTML = "Student Added Successfully"
+                    cname = "green"
+                }
+            }
+            hmsg.style.color = cname
+        }
+
+        function clear12()
+        {
+            document.getElementById("txtname").value=""
+            document.getElementById("txtage").value=""
+            document.getElementById("txtcontact").value=""
+            document.getElementById("hmsg").innerHTML=""
+        }
+    </script>
+</head>
+
+<body onload="demo()">
+    <div class="container">
+        <h2>Student Registration</h2>
+
+        <p>
+            Enter name : <input type="text" id="txtname">
+        </p>
+
+        <p>
+            Enter age : <input type="number" id="txtage">
+        </p>
+
+        <p>
+            Enter contact no : <input type="text" maxlength="10" id="txtcontact">
+        </p>
+
+        <h3 id="hmsg"></h3>
+
+        <input type="button" value="Add" onclick="AddStudent()">
+        <input type="button" value="Cancel" onclick="clear12()">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Contact</th>
+                </tr>
+            </thead>
+            <tbody id="tstudents"></tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var students = [
+                // {name:"John",age:15,contact:"9874563210"},
+                // {name:"Ronn",age:12,contact:"7574563210"},
+                // {name:"Maria",age:14,contact:"8522563210"},
+                // {name:"Michael",age:13,contact:"9526363210"}
+            ]
+        function demo()
+        {
+            // var dstudents = document.getElementById("dstudents")
+            var tstudents = document.getElementById("tstudents")
+            
+            let studentsUI = students.reverse().map((s)=>
+        {
+            return `<tr><td>${s.name}</td> <td>${s.age}</td> <td>${s.contact}</td></tr>`
+            // return `<p> Studentanme : ${s.name} <br>
+            //     age: ${s.age} <br>
+            //     Course : ${s.subject}
+            //     </p>`       
+        }).join("")
+            // dstudents.innerHTML = studentsUI
+            tstudents.innerHTML = studentsUI
+
+
+            // var student={name:"John",age:32,subject:"Commerce"} 
+            // dstudents.innerHTML = `<p> Studentanme : ${student.name} <br>
+            //     age: ${student.age} <br>
+            //     Course : ${student.subject}
+            //     </p>`       
+
+            // console.log(student)
+            // console.log(student.name)
+            // console.log(student.age)
+        }
+        function AddStudent()
+        {
+            let txtname  =document.getElementById("txtname")
+            let txtage  =document.getElementById("txtage")
+            let txtcontact =document.getElementById("txtcontact")
+            let hmsg  = document.getElementById("hmsg")
+            let cname = "red"
+            if(txtcontact.value=="" || txtage.value=="" || txtname.value=="")
+            {
+                hmsg.innerHTML = "Please fill all the fields"
+            }
+            else
+            {
+                if(isNaN(txtcontact.value))
+                {
+                hmsg.innerHTML = "Invalid contact no "        
+                }
+                else
+                {
+                    let student =   {name:txtname.value,age:txtage.value,contact:txtcontact.value}
+                                students.push(student)
+                                demo()
+                            txtname.value = ""
+                            txtage.value=""
+                            txtcontact.value=""
+                            txtname.focus()
+                    hmsg.innerHTML = "STudent Added Successfully"
+                    cname = "green"
+                }
+            }
+            hmsg.style.color = cname
+            
+        }
+        function clear12()
+        {
+               let txtname  =document.getElementById("txtname")
+            let txtage  =document.getElementById("txtage")
+            let txtcontact =document.getElementById("txtcontact")
+            let hmsg  = document.getElementById("hmsg")
+            txtage.value=""
+            txtname.value=""
+            txtcontact.value=""
+            hmsg.innerHTML=""
+        }
+    </script>
+</head>
+<body onload="demo()">
+    <!-- <div id="dstudents"></div> -->
+     <p>
+        Enter naem : <input type="text" id="txtname">
+     </p>
+     <p>Enter age : <input type="number" id="txtage"></p>
+     <p>enter contact no : <input type="text" maxlength="10" id="txtcontact"></p>
+     <h2 id="hmsg"></h2>
+     <input type="button" value="Add" onclick="AddStudent()">
+     <input type="button" value="Cancel" onclick="clear12()">
+     <table border="" >
+        <thead>
+        <tr><th>name</th>
+        <th>age</th>
+    <th>contact</th></tr>
+    </thead>
+    <tbody id="tstudents">
+
+    </tbody>
+     </table>
+</body>
+</html>
