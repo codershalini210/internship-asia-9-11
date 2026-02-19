@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+
+    <script src="script.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #6a0dad, #b19cd9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            width: 650px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        h2 {
+            text-align: center;
+            color: #6a0dad;
+        }
+
+        p {
+            font-weight: bold;
+            color: #6a0dad;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            width: 70%;
+            border-radius: 8px;
+            border: 2px solid #6a0dad;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #b19cd9;
+            box-shadow: 0 0 8px #b19cd9;
+        }
+
+        input[type="button"] {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 8px;
+            background: #6a0dad;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        input[type="button"]:hover {
+            background: #4b0082;
+            transform: scale(1.05);
+        }
+
+        #pmsg {
+            color: red;
+            font-size: 14px;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            animation: slideUp 0.5s ease-in-out;
+        }
+
+        thead {
+            background: #6a0dad;
+            color: white;
+        }
+
+        td {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tbody tr:hover {
+            background: #f3e8ff;
+            transition: 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0; transform: scale(0.9);}
+            to {opacity: 1; transform: scale(1);}
+        }
+
+        @keyframes slideUp {
+            from {opacity: 0; transform: translateY(20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>📝 Task Manager</h2>
+
+        <p>
+            Enter task :
+            <input type="text" id="txttask">
+        </p>
+
+        <input type="button" value="Add" id="btnadd" onclick="addtask()">
+
+        <p id="pmsg"></p>
+
+        <table>
+            <thead>
+                <tr>
+                    <td>Sno</td>
+                    <td>Task</td>
+                    <td>Status</td>
+                    <td>Mark Complete</td>
+                    <td>Delete</td>
+                </tr>
+            </thead>
+            <tbody id="tbdy">
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
